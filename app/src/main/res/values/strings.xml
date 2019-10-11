@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">GithubSearcher</string>
+    <string name="hint_search">Enter username...</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="remove_from_bookmarks">Remove</string>
+    <string name="add_to_bookmarks">Add</string>
+    <string name="search_for_users">Search for users</string>
+    <string name="bookmarks">Bookmarks</string>
+</resources>
