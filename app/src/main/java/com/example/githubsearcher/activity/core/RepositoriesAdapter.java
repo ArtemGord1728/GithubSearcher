@@ -1,4 +1,4 @@
-package core;
+package com.example.githubsearcher.activity.core;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -7,14 +7,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.githubsearcher.R;
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import models.RemoteRepository;
-import models.Repository;
+import com.example.githubsearcher.activity.models.Repository;
 
 public class RepositoriesAdapter extends RecyclerView.Adapter<RepositoryRecycleHolder> implements RepositoryRecycleHolder.ItemClickListener{
 

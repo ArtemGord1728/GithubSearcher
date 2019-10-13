@@ -1,4 +1,4 @@
-package core;
+package com.example.githubsearcher.activity.core;
 
 import android.view.View;
 import android.widget.TextView;
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.githubsearcher.R;
 
-import models.Repository;
+import com.example.githubsearcher.activity.models.Repository;
 
 public class RepositoryRecycleHolder extends RecyclerView.ViewHolder {
 
@@ -25,12 +25,9 @@ public class RepositoryRecycleHolder extends RecyclerView.ViewHolder {
         mDescriptionView = itemView.findViewById(R.id.description_view);
         mUrlView = itemView.findViewById(R.id.url);
 
-        itemView.findViewById(R.id.item).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mItemClickListener != null && mRepository != null) {
-                    mItemClickListener.onItemClick(getAdapterPosition(), mRepository);
-                }
+        itemView.findViewById(R.id.item).setOnClickListener(view -> {
+            if (mItemClickListener != null && mRepository != null) {
+                mItemClickListener.onItemClick(getAdapterPosition(), mRepository);
             }
         });
     }
