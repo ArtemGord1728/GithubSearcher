@@ -7,4 +7,23 @@
     <string name="add_to_bookmarks">Add</string>
     <string name="search_for_users">Search for users</string>
     <string name="bookmarks">Bookmarks</string>
+    <string name="empty_search">Empty</string>
+    <string name="app_info">About</string>
+    <string name="app_info_text">This application searches for GitHub users</string>
+    <string name="search_text">Search</string>
+    <string name="private_status_text">private</string>
+    <string name="public_status_text">public</string>
+    <string name="search_text_cancel">Cancel</string>
+    <string name="error">Error</string>
+    <string name="repository_owner">Owner</string>
+    <string name="repository_owner_url">Url</string>
+    <string name="repository_state">Repository state</string>
+    <string name="repository_create_date">Date</string>
+    <string name="no_repositories">No repositories</string>
+    <string name="empty_login">Empty login</string>
+    <string name="no_internet">No internet</string>
+    <string name="action_ok">Ok</string>
+    <string name="msg_api_calling">Loading</string>
+    <string name="user_not_found">User not found</string>
+    <string name="add_text_btn">Add</string>
 </resources>
