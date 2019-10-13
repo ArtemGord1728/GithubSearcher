@@ -1,4 +1,4 @@
-package core.search_core;
+package com.example.githubsearcher.activity;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -11,17 +11,19 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
-import com.example.githubsearcher.MainActivity;
 import com.example.githubsearcher.R;
 
 import org.json.JSONArray;
@@ -37,13 +39,14 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import models.Repository;
-import models.User;
+import com.example.githubsearcher.activity.models.Repository;
+import com.example.githubsearcher.activity.models.User;
 
 public class SearchActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText mSearchView;
     private User mUser;
+    private FavoritesFragment favoritesFragment;
 
     public static ProgressDialog showProgress(Context context, @StringRes int messageId) {
         ProgressDialog dialog = null;
@@ -64,15 +67,12 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_activity);
         mSearchView = findViewById(R.id.login);
+        favoritesFragment = new FavoritesFragment();
 
         mSearchView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    /*
-                    hide keyboard
-                     */
-
                     InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                     if (imm != null) {
                         imm.hideSoftInputFromWindow(mSearchView.getWindowToken(), 0);
@@ -246,6 +246,32 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                 showMessage(e.getMessage());
             }
         }
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.drawner_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
+        switch (item.getItemId()){
+            case R.id.drawer_bookmarks:
+                break;
+
+            case R.id.info:
+                showMessage(R.string.app_info_text);
+                break;
+            default:
+                break;
+        }
+        ft.commit();
+        return super.onOptionsItemSelected(item);
     }
 
     @SuppressLint("StaticFieldLeak")
