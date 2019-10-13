@@ -1,4 +1,4 @@
-package com.example.githubsearcher.activity.core.search_core;
+package com.example.githubsearcher.activity.core;
 
 import java.util.List;
 

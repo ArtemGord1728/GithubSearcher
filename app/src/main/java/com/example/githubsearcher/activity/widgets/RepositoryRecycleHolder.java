@@ -1,4 +1,4 @@
-package com.example.githubsearcher.activity.core;
+package com.example.githubsearcher.activity.widgets;
 
 import android.view.View;
 import android.widget.TextView;

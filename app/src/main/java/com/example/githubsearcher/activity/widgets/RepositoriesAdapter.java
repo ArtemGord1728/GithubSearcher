@@ -1,4 +1,4 @@
-package com.example.githubsearcher.activity.core;
+package com.example.githubsearcher.activity.widgets;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;

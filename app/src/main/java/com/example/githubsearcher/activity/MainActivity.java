@@ -2,7 +2,6 @@ package com.example.githubsearcher.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,10 +10,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,15 +20,12 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.githubsearcher.R;
 
-import com.example.githubsearcher.activity.core.RepositoriesAdapter;
+import com.example.githubsearcher.activity.widgets.RepositoriesAdapter;
 import com.example.githubsearcher.activity.database.SQLAppTools;
 import com.example.githubsearcher.activity.models.Repository;
 import com.example.githubsearcher.activity.models.User;
 
-import io.reactivex.Completable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
 
 
 public class MainActivity extends AppCompatActivity implements RepositoriesAdapter.ItemClickListener {
