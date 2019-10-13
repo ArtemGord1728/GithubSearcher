@@ -1,4 +1,4 @@
-package models;
+package com.example.githubsearcher.activity.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -24,7 +24,12 @@ public class User implements Parcelable {
         }
     };
 
-    @SerializedName("login")
+
+    @SerializedName("id")
+    @Expose
+    private long id;
+
+    @SerializedName("username")
     @Expose
     private String mLogin;
 
@@ -48,6 +53,7 @@ public class User implements Parcelable {
 
 
     public User(String login) {
+        this.id = id;
         mLogin = login;
         mAvatar = "";
         mName = "";
@@ -63,6 +69,15 @@ public class User implements Parcelable {
         mCompany = in.readString();
         mAddress = in.readString();
         mRepositories = in.createTypedArrayList(Repository.CREATOR);
+    }
+
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getLogin() {
