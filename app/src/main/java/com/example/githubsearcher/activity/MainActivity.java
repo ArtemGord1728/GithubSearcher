@@ -1,4 +1,4 @@
-package com.example.githubsearcher;
+package com.example.githubsearcher.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,18 +11,27 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.githubsearcher.R;
 
-import core.RepositoriesAdapter;
-import models.Repository;
-import models.User;
+import com.example.githubsearcher.activity.core.RepositoriesAdapter;
+import com.example.githubsearcher.activity.database.SQLAppTools;
+import com.example.githubsearcher.activity.models.Repository;
+import com.example.githubsearcher.activity.models.User;
+
+import io.reactivex.Completable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 
 public class MainActivity extends AppCompatActivity implements RepositoriesAdapter.ItemClickListener {
@@ -32,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements RepositoriesAdapt
     private TextView mSecondaryView;
     private TextView mEmptyView;
     private RecyclerView mRecyclerView;
+    private CompositeDisposable compositeDisposable;
+    private SQLAppTools sqlAppTools;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +55,20 @@ public class MainActivity extends AppCompatActivity implements RepositoriesAdapt
         mEmptyView = findViewById(R.id.no_repositories);
         mRecyclerView = findViewById(R.id.recycler_view);
 
+        sqlAppTools = new SQLAppTools(this);
+        compositeDisposable = new CompositeDisposable();
+
         Intent intent = getIntent();
         User user = intent.getParcelableExtra(User.USER);
 
         if (user == null) return;
 
         setUserInfo(user);
+
+        //btn_add.setOnClickListener(v -> compositeDisposable.add(Completable.fromAction(() -> sqlAppTools.addToFavorites(user))
+        //.subscribeOn(Schedulers.io())
+        //.observeOn(AndroidSchedulers.mainThread())
+        //.subscribe()));
     }
 
     private void setUserInfo(User user) {
@@ -77,6 +96,30 @@ public class MainActivity extends AppCompatActivity implements RepositoriesAdapt
         }
     }
 
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.user_menu, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.user_menu_add:
+
+                break;
+
+            case R.id.user_menu_remove:
+
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     @Override
     public void onItemClick(int position, Repository repo) {
         if (repo.getHtmlUrl().equals("")) return;
@@ -85,22 +128,5 @@ public class MainActivity extends AppCompatActivity implements RepositoriesAdapt
         } catch (ActivityNotFoundException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        getMenuInflater().inflate(R.menu.drawner_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        if(item.getItemId() == R.id.drawer_bookmarks){
-
-        }
-        ft.commit();
-        return super.onOptionsItemSelected(item);
     }
 }
