@@ -1,10 +1,10 @@
-package core;
+package com.example.githubsearcher.activity.core;
 
 import java.util.List;
 
 import io.reactivex.Single;
-import models.Repository;
-import models.User;
+import com.example.githubsearcher.activity.models.Repository;
+import com.example.githubsearcher.activity.models.User;
 
 public interface ApiConfig {
     byte CONNECT_TIMEOUT = 120;

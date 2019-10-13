@@ -1,4 +1,4 @@
-package constants;
+package com.example.githubsearcher.activity.constants;
 
 public enum ApiConstants
 {
