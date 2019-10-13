@@ -1,123 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:minHeight="130dp"
-    app:cardCornerRadius="6dp">
+    android:layout_height="100dp"
+    android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
+        android:id="@+id/item"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="?attr/selectableItemBackground"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp">
+
+        <TextView
+            android:id="@+id/name_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:textColor="@color/colorGradientEnd"
+            android:textSize="14sp"
+            tools:targetApi="JELLY_BEAN" />
+
+        <TextView
+            android:id="@+id/description_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name_view"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif"
+            android:maxLines="1"
+            android:textColor="@color/colorPrimary"
+            android:textSize="12sp"
+            tools:targetApi="JELLY_BEAN" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/description_view"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/url"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginStart="8dp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/colorAccent"
+                android:textSize="10sp"
+                tools:ignore="SmallSp"
+                tools:targetApi="jelly_bean" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/stars_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginStart="8dp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/colorPrimary"
+                android:textSize="10sp"
+                tools:ignore="SmallSp"
+                tools:targetApi="jelly_bean" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/forks_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/colorGray"
+                android:textSize="10sp"
+                tools:ignore="SmallSp"
+                tools:targetApi="jelly_bean" />
+        </LinearLayout>
 
         <ImageView
-            android:id="@+id/info_avatar"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="6dp"
+            tools:ignore="ContentDescription" />
 
-        <TextView
-            android:id="@+id/info_repo_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Test repo's name"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/info_avatar"
-            app:layout_constraintTop_toTopOf="parent" />
+    </RelativeLayout>
 
-        <TextView
-            android:id="@+id/info_repo_url"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:autoLink="web"
-            android:ellipsize="end"
-            android:gravity="start"
-            android:maxLines="1"
-            android:text="Test repo's"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/info_avatar"
-            app:layout_constraintTop_toBottomOf="@+id/info_repo_name" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_gravity="bottom"
+         />
 
-        <View
-            android:id="@+id/divider"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/info_repo_url" />
-
-        <TextView
-            android:id="@+id/info_user_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/repository_owner"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider" />
-
-        <TextView
-            android:id="@+id/info_user_login_value"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBaseline_toBaselineOf="@id/info_user_login"
-            app:layout_constraintLeft_toRightOf="@+id/info_user_login"
-            app:layout_constraintRight_toRightOf="parent" />
-
-        <TextView
-            android:id="@+id/info_user_url"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/repository_owner_url"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/info_user_login" />
-
-        <TextView
-            android:id="@+id/info_user_url_value"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBaseline_toBaselineOf="@+id/info_user_url"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/info_user_url"
-            app:layout_constraintTop_toBottomOf="@+id/info_user_login_value" />
-
-        <TextView
-            android:id="@+id/info_repo_status"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/repository_state"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/info_user_url" />
-
-        <TextView
-            android:id="@+id/info_repo_status_value"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBaseline_toBaselineOf="@+id/info_repo_status"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/info_repo_status"
-            app:layout_constraintTop_toBottomOf="@+id/info_user_url_value" />
-
-        <TextView
-            android:id="@+id/info_repo_created"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/repository_create_date"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/info_repo_status" />
-
-        <TextView
-            android:id="@+id/info_repo_created_value"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBaseline_toBaselineOf="@+id/info_repo_created"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/info_repo_created"
-            app:layout_constraintTop_toBottomOf="@+id/info_repo_status_value" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
+</FrameLayout>
