@@ -1,4 +1,4 @@
-package com.example.githubsearcher.activity.widgets;
+package com.example.githubsearcher.widgets;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.githubsearcher.R;
-import com.example.githubsearcher.activity.database.SQLAppTools;
+import com.example.githubsearcher.database.SQLAppTools;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;

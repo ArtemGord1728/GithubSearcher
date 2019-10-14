@@ -1,4 +1,4 @@
-package com.example.githubsearcher.activity.core;
+package com.example.githubsearcher.core;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -9,8 +9,8 @@ import java.util.List;
 import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-import com.example.githubsearcher.activity.models.Repository;
-import com.example.githubsearcher.activity.models.User;
+import com.example.githubsearcher.models.Repository;
+import com.example.githubsearcher.models.User;
 
 public class NetworkConfig implements ApiConfig {
 

@@ -1,4 +1,4 @@
-package com.example.githubsearcher.activity.models;
+package com.example.githubsearcher.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;

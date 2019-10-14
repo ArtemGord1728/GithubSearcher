@@ -1,4 +1,4 @@
-package com.example.githubsearcher.activity.widgets;
+package com.example.githubsearcher.widgets;
 
 import android.view.View;
 import android.widget.TextView;
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.githubsearcher.R;
 
-import com.example.githubsearcher.activity.models.Repository;
+import com.example.githubsearcher.models.Repository;
 
 public class RepositoryRecycleHolder extends RecyclerView.ViewHolder {
 

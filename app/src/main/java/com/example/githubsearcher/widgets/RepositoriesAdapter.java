@@ -1,4 +1,4 @@
-package com.example.githubsearcher.activity.widgets;
+package com.example.githubsearcher.widgets;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -11,7 +11,7 @@ import com.example.githubsearcher.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.githubsearcher.activity.models.Repository;
+import com.example.githubsearcher.models.Repository;
 
 public class RepositoriesAdapter extends RecyclerView.Adapter<RepositoryRecycleHolder> implements RepositoryRecycleHolder.ItemClickListener{
 

@@ -36,8 +36,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import com.example.githubsearcher.R;
-import com.example.githubsearcher.activity.models.Repository;
-import com.example.githubsearcher.activity.models.User;
+import com.example.githubsearcher.models.Repository;
+import com.example.githubsearcher.models.User;
 import com.example.githubsearcher.activity.widgets.FavoritesFragment;
 
 public class SearchActivity extends AppCompatActivity implements View.OnClickListener {

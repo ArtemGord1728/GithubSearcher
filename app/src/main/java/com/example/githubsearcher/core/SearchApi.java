@@ -1,10 +1,10 @@
-package com.example.githubsearcher.activity.core;
+package com.example.githubsearcher.core;
 
 import java.util.List;
 
 import io.reactivex.Single;
-import com.example.githubsearcher.activity.models.Repository;
-import com.example.githubsearcher.activity.models.User;
+import com.example.githubsearcher.models.Repository;
+import com.example.githubsearcher.models.User;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 

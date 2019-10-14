@@ -1,4 +1,4 @@
-package com.example.githubsearcher.activity.database;
+package com.example.githubsearcher.database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.githubsearcher.activity.constants.ApiConstants;
-import com.example.githubsearcher.activity.models.User;
+import com.example.githubsearcher.models.User;
 
 import java.util.ArrayList;
 import java.util.List;

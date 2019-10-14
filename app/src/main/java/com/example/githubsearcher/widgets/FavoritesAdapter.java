@@ -1,4 +1,4 @@
-package com.example.githubsearcher.activity.widgets;
+package com.example.githubsearcher.widgets;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.githubsearcher.R;
-import com.example.githubsearcher.activity.models.User;
+import com.example.githubsearcher.models.User;
 
 import java.util.ArrayList;
 import java.util.List;

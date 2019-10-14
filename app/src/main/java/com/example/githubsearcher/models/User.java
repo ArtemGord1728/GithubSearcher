@@ -1,4 +1,4 @@
-package com.example.githubsearcher.activity.models;
+package com.example.githubsearcher.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -49,7 +49,7 @@ public class User implements Parcelable {
     @Expose
     private String mAddress;
 
-    private List<com.example.githubsearcher.activity.models.Repository> mRepositories;
+    private List<Repository> mRepositories;
 
 
     public User(String login) {
@@ -68,7 +68,7 @@ public class User implements Parcelable {
         mName = in.readString();
         mCompany = in.readString();
         mAddress = in.readString();
-        mRepositories = in.createTypedArrayList(com.example.githubsearcher.activity.models.Repository.CREATOR);
+        mRepositories = in.createTypedArrayList(Repository.CREATOR);
     }
 
 
@@ -121,11 +121,11 @@ public class User implements Parcelable {
         return secondaryText;
     }
 
-    public List<com.example.githubsearcher.activity.models.Repository> getRepositories() {
+    public List<Repository> getRepositories() {
         return mRepositories;
     }
 
-    public void addRepository(com.example.githubsearcher.activity.models.Repository repo) {
+    public void addRepository(Repository repo) {
         mRepositories.add(repo);
     }
 
