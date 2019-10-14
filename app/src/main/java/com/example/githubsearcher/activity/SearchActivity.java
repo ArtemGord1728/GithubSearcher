@@ -69,34 +69,31 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         mSearchView = findViewById(R.id.login);
         favoritesFragment = new FavoritesFragment();
 
-        mSearchView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
-                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    if (imm != null) {
-                        imm.hideSoftInputFromWindow(mSearchView.getWindowToken(), 0);
-                    }
-
-                    String login = mSearchView.getText().toString();
-
-                    if (login.isEmpty()) {
-                        showMessage(R.string.empty_login);
-                        return false;
-                    }
-
-                    if (noConnection()) {
-                        showMessage(R.string.no_internet);
-                        return false;
-                    }
-
-                    mUser = new User(login);
-
-                    new GetUserTask().execute("https://api.github.com/users/" + login);
-                    return true;
+        mSearchView.setOnEditorActionListener((textView, actionId, keyEvent) -> {
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (imm != null) {
+                    imm.hideSoftInputFromWindow(mSearchView.getWindowToken(), 0);
                 }
-                return false;
+
+                String login = mSearchView.getText().toString();
+
+                if (login.isEmpty()) {
+                    showMessage(R.string.empty_login);
+                    return false;
+                }
+
+                if (noConnection()) {
+                    showMessage(R.string.no_internet);
+                    return false;
+                }
+
+                mUser = new User(login);
+
+                //new GetUserTask().execute("https://api.github.com/users/" + login);
+                return true;
             }
+            return false;
         });
 
         findViewById(R.id.btn_go).setOnClickListener(this);
