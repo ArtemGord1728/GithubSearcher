@@ -23,5 +23,5 @@
 
     <include
         android:id="@+id/include"
-        layout="@layout/search_activity" />
+        layout="@layout/content_main" />
 </androidx.drawerlayout.widget.DrawerLayout>
