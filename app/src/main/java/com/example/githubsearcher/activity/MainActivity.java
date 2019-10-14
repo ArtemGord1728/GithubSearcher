@@ -24,10 +24,10 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.githubsearcher.R;
 
-import com.example.githubsearcher.activity.widgets.RepositoriesAdapter;
-import com.example.githubsearcher.activity.database.SQLAppTools;
-import com.example.githubsearcher.activity.models.Repository;
-import com.example.githubsearcher.activity.models.User;
+import com.example.githubsearcher.widgets.RepositoriesAdapter;
+import com.example.githubsearcher.database.SQLAppTools;
+import com.example.githubsearcher.models.Repository;
+import com.example.githubsearcher.models.User;
 
 import io.reactivex.disposables.CompositeDisposable;
 

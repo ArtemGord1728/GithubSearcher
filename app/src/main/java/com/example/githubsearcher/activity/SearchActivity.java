@@ -38,7 +38,7 @@ import java.net.URL;
 import com.example.githubsearcher.R;
 import com.example.githubsearcher.models.Repository;
 import com.example.githubsearcher.models.User;
-import com.example.githubsearcher.activity.widgets.FavoritesFragment;
+import com.example.githubsearcher.widgets.FavoritesFragment;
 
 public class SearchActivity extends AppCompatActivity implements View.OnClickListener {
 
