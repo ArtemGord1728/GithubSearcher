@@ -1,6 +1,8 @@
 package com.example.githubsearcher.activity;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,12 +10,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.appcompat.widget.Toolbar;
 
 
 import com.bumptech.glide.Glide;
@@ -38,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements RepositoriesAdapt
     private CompositeDisposable compositeDisposable;
     private SQLAppTools sqlAppTools;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +56,10 @@ public class MainActivity extends AppCompatActivity implements RepositoriesAdapt
 
         sqlAppTools = new SQLAppTools(this);
         compositeDisposable = new CompositeDisposable();
+
+        ActionBar bar = getSupportActionBar();
+        bar.setDisplayHomeAsUpEnabled(true);
+
 
         Intent intent = getIntent();
         User user = intent.getParcelableExtra(User.USER);
@@ -103,6 +112,10 @@ public class MainActivity extends AppCompatActivity implements RepositoriesAdapt
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId())
         {
+            case android.R.id.home:
+                finish();
+                break;
+
             case R.id.user_menu_add:
 
                 break;

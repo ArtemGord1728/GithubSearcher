@@ -15,7 +15,6 @@ import com.example.githubsearcher.activity.models.User;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.FavoritesViewHolder>{
 
@@ -59,13 +58,11 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.Favo
     class FavoritesViewHolder extends RecyclerView.ViewHolder {
 
         private TextView searchItemLogin;
-        private CircleImageView imageView;
 
         public FavoritesViewHolder(@NonNull View itemView) {
             super(itemView);
 
             searchItemLogin = itemView.findViewById(R.id.search_item_login);
-            imageView = itemView.findViewById(R.id.search_item_avatar);
         }
     }
 }
