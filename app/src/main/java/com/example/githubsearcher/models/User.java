@@ -49,7 +49,7 @@ public class User implements Parcelable {
     @Expose
     private String mAddress;
 
-    private List<Repository> mRepositories;
+    private List<com.example.githubsearcher.activity.models.Repository> mRepositories;
 
 
     public User(String login) {
@@ -68,7 +68,7 @@ public class User implements Parcelable {
         mName = in.readString();
         mCompany = in.readString();
         mAddress = in.readString();
-        mRepositories = in.createTypedArrayList(Repository.CREATOR);
+        mRepositories = in.createTypedArrayList(com.example.githubsearcher.activity.models.Repository.CREATOR);
     }
 
 
@@ -121,11 +121,11 @@ public class User implements Parcelable {
         return secondaryText;
     }
 
-    public List<Repository> getRepositories() {
+    public List<com.example.githubsearcher.activity.models.Repository> getRepositories() {
         return mRepositories;
     }
 
-    public void addRepository(Repository repo) {
+    public void addRepository(com.example.githubsearcher.activity.models.Repository repo) {
         mRepositories.add(repo);
     }
 

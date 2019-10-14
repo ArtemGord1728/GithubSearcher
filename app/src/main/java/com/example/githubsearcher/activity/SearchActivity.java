@@ -22,8 +22,6 @@ import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.githubsearcher.R;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,7 +35,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import com.example.githubsearcher.activity.core.NetworkConfig;
+import com.example.githubsearcher.R;
 import com.example.githubsearcher.activity.models.Repository;
 import com.example.githubsearcher.activity.models.User;
 import com.example.githubsearcher.activity.widgets.FavoritesFragment;
@@ -46,6 +44,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
 
     private EditText mSearchView;
     private User mUser;
+    private FavoritesFragment favoritesFragment;
 
     public static ProgressDialog showProgress(Context context, @StringRes int messageId) {
         ProgressDialog dialog = null;
@@ -66,6 +65,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_activity);
         mSearchView = findViewById(R.id.login);
+        favoritesFragment = new FavoritesFragment();
 
         mSearchView.setOnEditorActionListener((textView, actionId, keyEvent) -> {
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
@@ -100,26 +100,21 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View view) {
 
-        executeTask("https://api.github.com/users/");
-    }
-
-    private boolean executeTask(String res) {
         String login = mSearchView.getText().toString();
 
         if (login.isEmpty()) {
             showMessage(R.string.empty_login);
-            return false;
+            return;
         }
 
         if (noConnection()) {
             showMessage(R.string.no_internet);
-            return false;
+            return;
         }
 
         mUser = new User(login);
 
-        new GetUserTask().execute(res + login);
-        return true;
+        new GetUserTask().execute("https://api.github.com/users/" + login);
     }
 
     private void showMessage(String message) {
