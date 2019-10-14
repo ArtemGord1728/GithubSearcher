@@ -15,15 +15,15 @@ import com.example.githubsearcher.activity.models.Repository;
 
 public class RepositoriesAdapter extends RecyclerView.Adapter<RepositoryRecycleHolder> implements RepositoryRecycleHolder.ItemClickListener{
 
-    private List<Repository> mRepositories;
-    private ItemClickListener mItemClickListener;
+    private List<Repository> repositories;
+    private ItemClickListener itemClickListener;
 
     public RepositoriesAdapter(List<Repository> repositories) {
-        mRepositories = repositories == null ? new ArrayList<>() : repositories;
+        this.repositories = repositories == null ? new ArrayList<>() : repositories;
     }
 
     public void setItemClickListener(ItemClickListener itemClickListener) {
-        mItemClickListener = itemClickListener;
+        this.itemClickListener = itemClickListener;
     }
 
     @NonNull
@@ -36,20 +36,20 @@ public class RepositoriesAdapter extends RecyclerView.Adapter<RepositoryRecycleH
 
     @Override
     public void onBindViewHolder(@NonNull RepositoryRecycleHolder holder, int position) {
-        Repository repo = mRepositories.get(position);
+        Repository repo = repositories.get(position);
         holder.setRepository(repo);
         holder.setItemClickListener(this);
     }
 
     @Override
     public int getItemCount() {
-        return mRepositories.size();
+        return repositories.size();
     }
 
     @Override
     public void onItemClick(int position, Repository repository) {
-        if (mItemClickListener != null){
-            mItemClickListener.onItemClick(position, repository);
+        if (itemClickListener != null){
+            itemClickListener.onItemClick(position, repository);
         }
     }
 

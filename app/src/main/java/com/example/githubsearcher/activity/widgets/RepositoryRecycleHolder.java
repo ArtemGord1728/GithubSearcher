@@ -12,35 +12,35 @@ import com.example.githubsearcher.activity.models.Repository;
 
 public class RepositoryRecycleHolder extends RecyclerView.ViewHolder {
 
-    private TextView mNameTextView;
-    private TextView mDescriptionView;
-    private TextView mUrlView;
+    private TextView nameTextView;
+    private TextView descriptionView;
+    private TextView urlView;
 
-    private Repository mRepository;
-    private ItemClickListener mItemClickListener;
+    private Repository repository;
+    private ItemClickListener itemClickListener;
 
     public RepositoryRecycleHolder(@NonNull View itemView) {
         super(itemView);
-        mNameTextView = itemView.findViewById(R.id.name_view);
-        mDescriptionView = itemView.findViewById(R.id.description_view);
-        mUrlView = itemView.findViewById(R.id.url);
+        nameTextView = itemView.findViewById(R.id.name_view);
+        descriptionView = itemView.findViewById(R.id.description_view);
+        urlView = itemView.findViewById(R.id.url);
 
         itemView.findViewById(R.id.item).setOnClickListener(view -> {
-            if (mItemClickListener != null && mRepository != null) {
-                mItemClickListener.onItemClick(getAdapterPosition(), mRepository);
+            if (itemClickListener != null && repository != null) {
+                itemClickListener.onItemClick(getAdapterPosition(), repository);
             }
         });
     }
 
     public void setItemClickListener(ItemClickListener itemClickListener) {
-        mItemClickListener = itemClickListener;
+        this.itemClickListener = itemClickListener;
     }
 
     public void setRepository(Repository repository){
-        mRepository = repository;
-        mNameTextView.setText(repository.getName());
-        mDescriptionView.setText(repository.getDescription());
-        mUrlView.setText(repository.getHtmlUrl());
+        this.repository = repository;
+        nameTextView.setText(repository.getName());
+        descriptionView.setText(repository.getDescription());
+        urlView.setText(repository.getHtmlUrl());
     }
 
     public interface ItemClickListener {
