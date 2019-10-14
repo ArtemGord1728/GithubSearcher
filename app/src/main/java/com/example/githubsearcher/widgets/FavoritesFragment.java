@@ -13,8 +13,6 @@ import android.view.ViewGroup;
 
 import com.example.githubsearcher.R;
 import com.example.githubsearcher.activity.database.SQLAppTools;
-import com.example.githubsearcher.activity.widgets.FavoritesAdapter;
-
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;

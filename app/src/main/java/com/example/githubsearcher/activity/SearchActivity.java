@@ -37,6 +37,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import com.example.githubsearcher.activity.core.NetworkConfig;
 import com.example.githubsearcher.activity.models.Repository;
 import com.example.githubsearcher.activity.models.User;
 import com.example.githubsearcher.activity.widgets.FavoritesFragment;
@@ -45,7 +46,6 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
 
     private EditText mSearchView;
     private User mUser;
-    private FavoritesFragment favoritesFragment;
 
     public static ProgressDialog showProgress(Context context, @StringRes int messageId) {
         ProgressDialog dialog = null;
@@ -66,7 +66,6 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_activity);
         mSearchView = findViewById(R.id.login);
-        favoritesFragment = new FavoritesFragment();
 
         mSearchView.setOnEditorActionListener((textView, actionId, keyEvent) -> {
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
@@ -101,21 +100,26 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View view) {
 
+        executeTask("https://api.github.com/users/");
+    }
+
+    private boolean executeTask(String res) {
         String login = mSearchView.getText().toString();
 
         if (login.isEmpty()) {
             showMessage(R.string.empty_login);
-            return;
+            return false;
         }
 
         if (noConnection()) {
             showMessage(R.string.no_internet);
-            return;
+            return false;
         }
 
         mUser = new User(login);
 
-        new GetUserTask().execute("https://api.github.com/users/" + login);
+        new GetUserTask().execute(res + login);
+        return true;
     }
 
     private void showMessage(String message) {
