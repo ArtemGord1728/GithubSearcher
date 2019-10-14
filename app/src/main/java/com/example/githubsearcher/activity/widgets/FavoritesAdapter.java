@@ -1,4 +1,4 @@
-package com.example.githubsearcher.activity;
+package com.example.githubsearcher.activity.widgets;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -31,7 +31,7 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.Favo
         User item = userList.get(0);
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        View view = inflater.inflate(R.layout.user_search_info, parent, false);
+        View view = inflater.inflate(R.layout.fragment_favorites, parent, false);
         FavoritesViewHolder favoritesViewHolder = new FavoritesViewHolder(view);
 
         favoritesViewHolder.searchItemLogin.setText(item.getLogin());
@@ -61,8 +61,6 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.Favo
 
         public FavoritesViewHolder(@NonNull View itemView) {
             super(itemView);
-
-            searchItemLogin = itemView.findViewById(R.id.search_item_login);
         }
     }
 }

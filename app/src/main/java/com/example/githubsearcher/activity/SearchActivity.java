@@ -10,14 +10,12 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
@@ -41,6 +39,7 @@ import java.net.URL;
 
 import com.example.githubsearcher.activity.models.Repository;
 import com.example.githubsearcher.activity.models.User;
+import com.example.githubsearcher.activity.widgets.FavoritesFragment;
 
 public class SearchActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -90,7 +89,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
 
                 mUser = new User(login);
 
-                //new GetUserTask().execute("https://api.github.com/users/" + login);
+                new GetUserTask().execute("https://api.github.com/users/" + login);
                 return true;
             }
             return false;

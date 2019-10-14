@@ -1,4 +1,4 @@
-package com.example.githubsearcher.activity;
+package com.example.githubsearcher.activity.widgets;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.example.githubsearcher.R;
 import com.example.githubsearcher.activity.database.SQLAppTools;
+import com.example.githubsearcher.activity.widgets.FavoritesAdapter;
 
 
 import io.reactivex.Observable;
